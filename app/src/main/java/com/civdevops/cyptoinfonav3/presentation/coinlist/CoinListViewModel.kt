@@ -22,22 +22,6 @@ class CoinListViewModel @Inject constructor(
         getCoinList()
     }
 
-    fun getCoinListV1(){
-        coinListUseCase().onEach { results ->
-            when(results){
-                is Resource.Error -> {
-                    _state.value = _state.value.copy(error = results.message)
-                }
-                is Resource.Loading -> {
-                    _state.value = _state.value.copy(isLoading = true)
-                }
-                is Resource.Success -> {
-                    _state.value = _state.value.copy(data = results.data)
-                }
-            }
-        }.launchIn(viewModelScope)
-    }
-
     fun getCoinList(){
         coinListUseCase().onEach { results ->
             _state.value = _state.value.copy(
