@@ -1,6 +1,6 @@
 package com.civdevops.cyptoinfonav3.data.remote.dto
 
-import com.civdevops.cyptoinfonav3.domain.models.Coin
+import com.civdevops.cyptoinfonav3.domain.model.Coin
 import com.google.gson.annotations.SerializedName
 
 data class CoinDto(

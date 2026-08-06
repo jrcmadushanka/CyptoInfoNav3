@@ -1,4 +1,4 @@
-package com.civdevops.cyptoinfonav3.presentation.coinlist.components
+package com.civdevops.cyptoinfonav3.presentation.coinlist.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.civdevops.cyptoinfonav3.domain.models.Coin
+import com.civdevops.cyptoinfonav3.domain.model.Coin
 
 @Composable
 fun CoinListItem(coin: Coin) {

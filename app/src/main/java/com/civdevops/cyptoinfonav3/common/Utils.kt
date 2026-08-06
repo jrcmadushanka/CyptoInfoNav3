@@ -14,7 +14,7 @@ fun <T> toResourceFlow(action: suspend () -> T): Flow<Resource<T>> = flow {
         emit(Resource.Success(data))
     } catch (e: HttpException) {
         emit(Resource.Error(message = e.localizedMessage ?: "An Unexpected error occurred!"))
-    } catch (e: IOException) {
+    } catch (_: IOException) {
         emit(Resource.Error(message = "Couldn't reach server. Check your internet connection."))
     } catch (e: Exception) {
         emit(Resource.Error(message = e.localizedMessage ?: "Unexpected error!"))

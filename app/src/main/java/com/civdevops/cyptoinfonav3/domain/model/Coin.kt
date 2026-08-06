@@ -1,4 +1,4 @@
-package com.civdevops.cyptoinfonav3.domain.models
+package com.civdevops.cyptoinfonav3.domain.model
 
 import kotlinx.serialization.Serializable
 
