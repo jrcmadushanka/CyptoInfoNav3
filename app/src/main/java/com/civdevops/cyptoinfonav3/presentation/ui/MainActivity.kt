@@ -11,8 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.civdevops.cyptoinfonav3.presentation.coindetail.CoinDetailsScreen
-import com.civdevops.cyptoinfonav3.presentation.coinlist.CoinListScreen
+import com.civdevops.cyptoinfonav3.presentation.navigation.NavigationRoot
 import com.civdevops.cyptoinfonav3.presentation.ui.theme.CyptoInfoNav3Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CyptoInfoNav3Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    CoinDetailsScreen(modifier = Modifier.padding(innerPadding))
+                    NavigationRoot(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
