@@ -3,6 +3,7 @@ package com.civdevops.cyptoinfonav3.presentation.coinlist.component
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -11,14 +12,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.civdevops.cyptoinfonav3.domain.model.Coin
 
 @Composable
-fun CoinListItem(coin: Coin) {
-    Box(modifier = Modifier
+fun CoinListItem(coin: Coin, modifier: Modifier) {
+    Box(modifier = modifier
         .padding(8.dp)
         .fillMaxWidth()) {
         Row(
@@ -47,12 +49,16 @@ fun CoinListItem(coin: Coin) {
 @Preview
 fun PreviewCoinListItem(){
     MaterialTheme(){
-        CoinListItem(Coin("1",
-            isActive = true,
-            isNew = true,
-            name = "Bitcoin",
-            symbol = "BTC",
-            rank = 1
-        ))
+        CoinListItem(
+            Coin(
+                "1",
+                isActive = true,
+                isNew = true,
+                name = "Bitcoin",
+                symbol = "BTC",
+                rank = 1
+            ),
+            modifier = Modifier
+        )
     }
 }

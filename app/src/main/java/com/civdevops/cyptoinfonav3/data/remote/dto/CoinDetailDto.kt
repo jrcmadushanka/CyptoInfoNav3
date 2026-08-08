@@ -7,7 +7,7 @@ import kotlinx.serialization.SerialName
 data class CoinDetailDto(
     @SerializedName("contract")
     val contract: String?,
-    val contracts: List<ContractDto>,
+    val contracts: List<ContractDto>?,
     val description: String?,
     @SerializedName("development_status")
     val developmentStatus: String?,
@@ -35,7 +35,7 @@ data class CoinDetailDto(
     val openSource: Boolean,
     @SerializedName("org_structure")
     val orgStructure: String?,
-    val parentDto: ParentDto,
+    val parentDto: ParentDto?,
     val platform: String?,
     @SerializedName("proof_type")
     val proofType: String?,
@@ -46,13 +46,13 @@ data class CoinDetailDto(
     val tags: List<TagDto>?,
     val team: List<TeamDto>?,
     val type: String,
-    val whitepaper: WhitepaperDto
+    val whitepaper: WhitepaperDto?
 )
 
 fun CoinDetailDto.toCoinDetail(): CoinDetail {
     return CoinDetail(
         contract = contract,
-        contracts = contracts.map { it.toContract() },
+        contracts = contracts?.map { it.toContract() },
         description = description,
         developmentStatus = developmentStatus,
         id = id,
@@ -67,7 +67,7 @@ fun CoinDetailDto.toCoinDetail(): CoinDetail {
         symbol = symbol,
         tags = tags?.map { it.name },
         team = team?.map { it.toTeam() },
-        whitepaper = whitepaper.toWhitePaper(),
+        whitepaper = whitepaper?.toWhitePaper(),
         title = "$rank. $name ($symbol)",
         infoList = getInfoList()
     )

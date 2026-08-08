@@ -12,6 +12,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,10 +32,14 @@ import com.civdevops.cyptoinfonav3.presentation.coindetail.component.CoinDetails
 @Composable
 fun CoinDetailsScreen(
     coinDetailsViewModel: CoinDetailViewModel = hiltViewModel(),
-    modifier: Modifier
+    modifier: Modifier,
+    coinId: String,
 ) {
-    val state by coinDetailsViewModel.state.collectAsStateWithLifecycle()
+    LaunchedEffect(coinId) {
+        coinDetailsViewModel.getCoinDetail(coinId)
+    }
 
+    val state by coinDetailsViewModel.state.collectAsStateWithLifecycle()
     val uriHandler = LocalUriHandler.current
 
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -79,7 +84,7 @@ fun CoinDetailsScreen(
                             )
                         }
 
-                        it.whitepaper.link?.let { uri ->
+                        it.whitepaper?.link?.let { uri ->
                             CoinDetailsWhitePaper() {
                                  uriHandler.openUri(uri)
                             }

@@ -1,6 +1,7 @@
 package com.civdevops.cyptoinfonav3.presentation.coinlist
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,17 +12,21 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.civdevops.cyptoinfonav3.presentation.coinlist.component.CoinListItem
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.civdevops.cyptoinfonav3.presentation.coinlist.component.CoinListItem
 
 @Composable
-fun CoinListScreen(modifier: Modifier, viewModel: CoinListViewModel = hiltViewModel()) {
+fun CoinListScreen(
+    modifier: Modifier,
+    viewModel: CoinListViewModel = hiltViewModel(),
+    onClickItem: (String) -> Unit
+) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -36,7 +41,9 @@ fun CoinListScreen(modifier: Modifier, viewModel: CoinListViewModel = hiltViewMo
         ) {
             state.data?.let { coins ->
                 items(coins, key = { coin -> coin.id }) { coin ->
-                    CoinListItem(coin = coin)
+                    CoinListItem(coin = coin, modifier = Modifier.clickable {
+                        onClickItem(coin.id)
+                    })
                 }
             }
         }

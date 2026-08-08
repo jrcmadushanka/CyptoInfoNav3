@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CoinDetail(
     val contract: String?,
-    val contracts: List<Contract>,
+    val contracts: List<Contract>?,
     val description: String?,
     val developmentStatus: String?,
     val id: String,
@@ -17,10 +17,10 @@ data class CoinDetail(
     val platform: String?,
     val rank: Int,
     val startedAt: String?,
-    val symbol: String,
+    val symbol: String?,
     val tags: List<String>?,
     val team: List<Team>?,
-    val whitepaper: Whitepaper,
+    val whitepaper: Whitepaper?,
     val title: String,
     val infoList: List<String>
 )

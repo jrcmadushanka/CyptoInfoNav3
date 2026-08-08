@@ -8,10 +8,10 @@ import com.civdevops.cyptoinfonav3.domain.repository.CoinInfoRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class CoinDetailsUseCase @Inject constructor(
+class GetCoinDetailsUseCase @Inject constructor(
     private val repository: CoinInfoRepository
 ){
-    operator fun invoke(): Flow<Resource<CoinDetail>> = toResourceFlow {
-        repository.getCoinDetails("code5-eigencode").toCoinDetail()
+    operator fun invoke(id: String): Flow<Resource<CoinDetail>> = toResourceFlow {
+        repository.getCoinDetails(id).toCoinDetail()
     }
 }
