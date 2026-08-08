@@ -1,4 +1,4 @@
-package com.civdevops.cyptoinfonav3.presentation.coinlist
+package com.civdevops.cyptoinfonav3.presentation.coininfo.coinlist
 
 import com.civdevops.cyptoinfonav3.domain.model.Coin
 

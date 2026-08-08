@@ -5,8 +5,20 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 sealed interface NavigationKey: NavKey  {
+
     @Serializable
-    data object CoinListKey: NavigationKey, NavKey
+    data object Auth: NavigationKey, NavKey {
+        @Serializable
+        data object Login: NavigationKey, NavKey
+        @Serializable
+        data object Register: NavigationKey, NavKey
+    }
+
     @Serializable
-    data class CoinDetailsKey(val id: String): NavigationKey, NavKey
+    data object CoinInfo: NavigationKey, NavKey {
+        @Serializable
+        data object CoinListKey: NavigationKey, NavKey
+        @Serializable
+        data class CoinDetailsKey(val id: String): NavigationKey, NavKey
+    }
 }

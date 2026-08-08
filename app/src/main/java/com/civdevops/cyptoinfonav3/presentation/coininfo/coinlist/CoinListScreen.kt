@@ -1,4 +1,4 @@
-package com.civdevops.cyptoinfonav3.presentation.coinlist
+package com.civdevops.cyptoinfonav3.presentation.coininfo.coinlist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,11 +19,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.civdevops.cyptoinfonav3.presentation.coinlist.component.CoinListItem
+import com.civdevops.cyptoinfonav3.presentation.coininfo.coinlist.component.CoinListItem
 
 @Composable
 fun CoinListScreen(
-    modifier: Modifier,
     viewModel: CoinListViewModel = hiltViewModel(),
     onClickItem: (String) -> Unit
 ) {
@@ -31,7 +30,7 @@ fun CoinListScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     Box(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {

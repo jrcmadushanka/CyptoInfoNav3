@@ -1,9 +1,8 @@
-package com.civdevops.cyptoinfonav3.presentation.coindetail
+package com.civdevops.cyptoinfonav3.presentation.coininfo.coindetail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.savedstate.savedState
 import com.civdevops.cyptoinfonav3.common.Resource
 import com.civdevops.cyptoinfonav3.domain.usecase.GetCoinDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +16,6 @@ import javax.inject.Inject
 @HiltViewModel
 class CoinDetailViewModel @Inject constructor(
     private val getCoinDetailsUseCase: GetCoinDetailsUseCase,
-    private val savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
     private val _state: MutableStateFlow<CoinDetailState> = MutableStateFlow(CoinDetailState())
