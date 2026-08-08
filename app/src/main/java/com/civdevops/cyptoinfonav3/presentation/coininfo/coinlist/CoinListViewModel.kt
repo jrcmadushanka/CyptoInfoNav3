@@ -1,4 +1,4 @@
-package com.civdevops.cyptoinfonav3.presentation.coinlist
+package com.civdevops.cyptoinfonav3.presentation.coininfo.coinlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

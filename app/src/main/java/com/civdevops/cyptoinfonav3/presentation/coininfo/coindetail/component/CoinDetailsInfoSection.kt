@@ -1,4 +1,4 @@
-package com.civdevops.cyptoinfonav3.presentation.coindetail.component
+package com.civdevops.cyptoinfonav3.presentation.coininfo.coindetail.component
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement

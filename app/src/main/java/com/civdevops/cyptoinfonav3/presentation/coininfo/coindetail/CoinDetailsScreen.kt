@@ -1,4 +1,4 @@
-package com.civdevops.cyptoinfonav3.presentation.coindetail
+package com.civdevops.cyptoinfonav3.presentation.coininfo.coindetail
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,6 +16,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
@@ -24,15 +25,14 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.civdevops.cyptoinfonav3.common.formatDate
-import com.civdevops.cyptoinfonav3.presentation.coindetail.component.CoinDetailsHeader
-import com.civdevops.cyptoinfonav3.presentation.coindetail.component.CoinDetailsInfoSection
-import com.civdevops.cyptoinfonav3.presentation.coindetail.component.CoinDetailsSection
-import com.civdevops.cyptoinfonav3.presentation.coindetail.component.CoinDetailsWhitePaper
+import com.civdevops.cyptoinfonav3.presentation.coininfo.coindetail.component.CoinDetailsHeader
+import com.civdevops.cyptoinfonav3.presentation.coininfo.coindetail.component.CoinDetailsInfoSection
+import com.civdevops.cyptoinfonav3.presentation.coininfo.coindetail.component.CoinDetailsSection
+import com.civdevops.cyptoinfonav3.presentation.coininfo.coindetail.component.CoinDetailsWhitePaper
 
 @Composable
 fun CoinDetailsScreen(
     coinDetailsViewModel: CoinDetailViewModel = hiltViewModel(),
-    modifier: Modifier,
     coinId: String,
 ) {
     LaunchedEffect(coinId) {
@@ -42,7 +42,7 @@ fun CoinDetailsScreen(
     val state by coinDetailsViewModel.state.collectAsStateWithLifecycle()
     val uriHandler = LocalUriHandler.current
 
-    Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         state.data?.let {
             Column(
                 modifier = Modifier.fillMaxSize()
